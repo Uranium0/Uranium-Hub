@@ -12,7 +12,12 @@ local colors = {
 local Window = Library.CreateLib("Uranium Hub", colors)
 
 local Settings = Window:NewTab("Settings")
+local MainSection = Main:NewSection("Gui")
 
+
+MainSection:NewKeybind("Toggle UI Keybind", "pick What key to press to hide the Gui", Enum.KeyCode.F, function()
+	Library:ToggleUI()
+end)
 
 local Main = Window:NewTab("Main")
 local MainSection = Main:NewSection("Auto")
