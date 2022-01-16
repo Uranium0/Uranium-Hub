@@ -1,5 +1,3 @@
-
-
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local colors = {
     SchemeColor = Color3.fromRGB(44,202,102),
@@ -23,6 +21,15 @@ local colors = {
 
 local Window = Library.CreateLib("Uranium Hub", colors)
 local Main = Window:NewTab("Main")
+local MainSection = Main:NewSection("Settings")
+
+
+MainSection:NewKeybind("Toggle UI Keybind", "pick What key to press to hide the Gui", Enum.KeyCode.F, function()
+	Library:ToggleUI()
+end)
+
+
+
 local Player = Window:NewTab("Player")
 local PlayerSection = Player:NewSection("Movement")
 PlayerSection:NewSlider("Walkspeed", "Changes the walkspeed", 200, 16, function(v) -- 500 (MaxValue) | 0 (MinValue)
@@ -102,7 +109,7 @@ end)
 
 
 
-local AutoFarm = Window:NewTab("AutoFarm")
+local AutoFarm = Window:NewTab("AutoFarm WIP")
 local AutoFarmSection = AutoFarm:NewSection("AutoFarm")
 AutoFarmSection:NewDropdown("Autofarm Stage", "Pick what Stage to Autofarm", {"5 to 50", "32 to 64", "The Wall", "The Slope", "The Tower", "The Pyramid", "The Abyss", "The Mountain", "The Statues"}, function(l)
 
@@ -143,13 +150,18 @@ AutoFarmSection:NewToggle("Autofarm", "Toggle AutoFarm On or Off", function(stat
    
     
     if state then
+        
+        getgenv().safe = CFrame.new(20, 3, 200)
         getgenv().AF = true
         while AF == true do
-            wait(0.1)
+            wait(1)
             
             local player = game.Players.LocalPlayer.Character
                 player.HumanoidRootPart.CFrame = part.CFrame
-           
+            wait(1)
+            local humanoid = game.Players.LocalPlayer.Character.Humanoid
+            humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+
            
         end
 
@@ -162,3 +174,4 @@ AutoFarmSection:NewToggle("Autofarm", "Toggle AutoFarm On or Off", function(stat
     end
 end)  
 
+    
