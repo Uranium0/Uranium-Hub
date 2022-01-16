@@ -42,8 +42,46 @@ MainSection:NewToggle("Auto Plunder", "Toggles Auto Plunder on or off", function
         getgenv().AP = false
     end
 end)
-MainSection:NewDropdown("Rebirth Amount", "Pick the amount to auto rebirth", {"1", "10", "100", "1000" , "10000" , "100000"}, function(currentOption)
-    getgenv().RA = currentOption
+MainSection:NewDropdown("Rebirth Amount", "Pick the amount to auto rebirth", {"1", "10", "100", "1k" , "10k" , "100k"}, function(currentOption)
+    if currentOption == 1 then
+        getgenv().RA = 1
+    end
+    if currentOption == 10 then
+        getgenv().RA = 10
+    end
+    if currentOption == 100 then
+        getgenv().RA = 100
+    end
+    if currentOption == "1k" then
+        getgenv().RA = 1000
+    end
+    if currentOption == "10k" then
+        getgenv().RA = 10000
+    end
+    if currentOption == "10k" then
+        getgenv().RA = 10000
+    end
+    if currentOption == "100k" then
+        getgenv().RA = 100000
+    end    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 end)
 MainSection:NewToggle("Auto Rebirth", "Toggle Auto Rebirth on or off", function(state)
     if state then
