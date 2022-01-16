@@ -89,7 +89,7 @@ local PlayerSection = Player:NewSection("Movement")
 PlayerSection:NewSlider("Walkspeed", "Changes the walkspeed", 250, 16, function(v) -- 500 (MaxValue) | 0 (MinValue)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v
 end)
-PlayerSection:NewSlider("Jumppover", "Changes the JumpPower", 250, 50, function(v) -- 500 (MaxValue) | 0 (MinValue)
+PlayerSection:NewSlider("Jumppower", "Changes the JumpPower", 250, 50, function(v) -- 500 (MaxValue) | 0 (MinValue)
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
 end)
 
